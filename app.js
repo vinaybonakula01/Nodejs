@@ -5,15 +5,11 @@ const bodyParser = require('body-parser');
 const app=express();
 
 app.use(bodyParser.urlencoded({extended:false}));
-const adminrouter=require('./routes/admin');
+const admindata=require('./routes/admin');
 const shoprouter=require('./routes/shop');
 
-app.use(adminrouter);
+app.use(admindata.routes);
 app.use(shoprouter);
 
-app.use((req,res,next)=>{
-   res.send('page not found')
- 
-})
 
 app.listen(8000);
